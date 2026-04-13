@@ -230,12 +230,14 @@ function DitheredWaves({
     }
   }, [size, gl, waveUniforms]);
 
+  const timeRef = useRef(0);
   const prevColor = useRef([...waveColor]);
-  useFrame(({ clock }) => {
+  useFrame((_state, delta) => {
     const u = waveUniforms;
 
     if (!disableAnimation) {
-      u.time.value = clock.getElapsedTime();
+      timeRef.current += delta;
+      u.time.value = timeRef.current;
     }
 
     if (u.waveSpeed.value !== waveSpeed) u.waveSpeed.value = waveSpeed;
