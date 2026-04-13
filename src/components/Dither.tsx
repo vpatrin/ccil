@@ -7,6 +7,13 @@ import { EffectComposer, wrapEffect } from '@react-three/postprocessing';
 import { Effect } from 'postprocessing';
 import * as THREE from 'three';
 
+// Suppress THREE.Clock deprecation warning from @react-three/fiber internals (fixed in R3F v10)
+const _origWarn = console.warn;
+console.warn = (...args: unknown[]) => {
+  if (typeof args[0] === 'string' && args[0].includes('THREE.Clock')) return;
+  _origWarn.apply(console, args);
+};
+
 const waveVertexShader = `
 precision highp float;
 varying vec2 vUv;
