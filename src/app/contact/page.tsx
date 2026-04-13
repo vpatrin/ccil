@@ -1,9 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import FaultyTerminal from "@/components/FaultyTerminal";
-import Flashlight from "@/components/Flashlight";
+import dynamic from "next/dynamic";
+
 import Navigation from "@/components/Navigation";
+
+const Dither = dynamic(() => import("@/components/Dither"), { ssr: false });
+
+const fieldClass = "w-full bg-transparent border-b border-white/[0.08] pb-3 text-xs text-white/70 placeholder:text-white/20 focus:outline-none focus:border-white/20 transition-colors duration-1000";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
@@ -11,29 +15,19 @@ export default function Contact() {
   return (
     <div className="relative min-h-screen">
       <div className="fixed inset-0 z-0">
-        <FaultyTerminal
-          scale={1.5}
-          gridMul={[2, 1]}
-          digitSize={1.2}
-          timeScale={0.3}
-          scanlineIntensity={0.3}
-          glitchAmount={0.5}
-          flickerAmount={0.4}
-          noiseAmp={0.6}
-          curvature={0.08}
-          tint="#2d04fb"
-          mouseReact
-          mouseStrength={0.2}
-          pageLoadAnimation
-          brightness={0.12}
-          spotlightRadius={0}
-          spotlightOpacity={0}
+        <Dither
+          waveColor={[0.3, 0.3, 0.4]}
+          waveSpeed={0.03}
+          waveFrequency={3}
+          waveAmplitude={0.3}
+          colorNum={4}
+          pixelSize={2}
+          enableMouseInteraction
+          mouseRadius={1}
         />
       </div>
 
-      <Flashlight radius={500} intensity={0.3} color="160,140,255" />
-
-      <div className="relative z-30">
+      <div className="relative z-10">
         <Navigation />
 
         <main className="min-h-screen flex items-center justify-center px-6">
@@ -58,19 +52,19 @@ export default function Contact() {
                     type="text"
                     required
                     placeholder="Name"
-                    className="w-full bg-transparent border-b border-white/[0.08] pb-3 text-xs text-white/70 placeholder:text-white/20 focus:outline-none focus:border-white/20 transition-colors duration-1000"
+                    className={fieldClass}
                   />
                   <input
                     type="email"
                     required
                     placeholder="Email"
-                    className="w-full bg-transparent border-b border-white/[0.08] pb-3 text-xs text-white/70 placeholder:text-white/20 focus:outline-none focus:border-white/20 transition-colors duration-1000"
+                    className={fieldClass}
                   />
                   <textarea
                     required
                     rows={3}
                     placeholder="Message"
-                    className="w-full bg-transparent border-b border-white/[0.08] pb-3 text-xs text-white/70 placeholder:text-white/20 focus:outline-none focus:border-white/20 transition-colors duration-1000 resize-none"
+                    className={`${fieldClass} resize-none`}
                   />
                   <button
                     type="submit"

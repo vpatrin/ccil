@@ -1,13 +1,14 @@
 # CCIL — Project Context
 
-DJ homepage for ccil. Minimal site with WebGL background (FaultyTerminal shader via OGL), CSS flashlight effect, and two pages (home + contact).
+DJ homepage for ccil. Minimal site with dithered WebGL wave background (Three.js + postprocessing), fuzzy text effects, and two pages (home + contact).
 
 ## Stack
 
 - Next.js 16 (App Router, TypeScript, standalone output)
 - Tailwind CSS 4
-- OGL (WebGL library for FaultyTerminal shader)
+- Three.js / @react-three/fiber / @react-three/postprocessing (dithered wave background)
 - Font: Space Mono (monospace)
+- Yarn (package manager)
 - Docker multi-stage build, deployed via GHCR
 
 ## Structure
@@ -17,22 +18,23 @@ src/
 ├── app/
 │   ├── layout.tsx          # Root layout, Space Mono font
 │   ├── globals.css         # Minimal reset, dark background
-│   ├── page.tsx            # Home — hero, dates, about
+│   ├── page.tsx            # Home — hero, countdown, dates, about
 │   └── contact/page.tsx    # Contact form
 └── components/
-    ├── FaultyTerminal.tsx   # WebGL background (OGL shader)
-    ├── Flashlight.tsx       # CSS radial gradient following mouse
-    └── Navigation.tsx       # Fixed nav, mix-blend-difference
+    ├── Countdown.tsx       # Countdown timer to next show (uses FuzzyText)
+    ├── Dither.tsx          # WebGL dithered wave background (Three.js)
+    ├── FadeIn.tsx          # Scroll-triggered fade-in wrapper
+    ├── FuzzyText.tsx       # Canvas-based fuzzy/glitch text effect
+    └── Navigation.tsx      # Fixed nav, mix-blend-difference
 ```
 
 ## Design Direction
 
-- Dark, minimal, artsy — the WebGL background is the identity
-- Palette: deep black, blue terminal tint (#2d04fb), white text at low opacities
+- Dark, minimal, artsy — the dithered wave background is the identity
+- Palette: deep black, muted blue-grey waves, white text at low opacities
 - Typography: Space Mono, small sizes, wide tracking, uppercase labels
 - Interactions: slow transitions (1000ms), opacity-only hovers
-- Content centered in a max-w-xl column after a full-screen hero
-- Flashlight: CSS radial gradient overlay following cursor, offset to the right
+- Content centered in a max-w-xl column after a full-screen hero with countdown
 
 ## Hard Rules
 
