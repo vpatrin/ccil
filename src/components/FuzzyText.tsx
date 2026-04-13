@@ -61,15 +61,16 @@ const FuzzyText: React.FC<FuzzyTextProps> = ({
 
   // Behavioral props read by the animation loop — no re-init needed when they change
   const behaviorRef = useRef({ baseIntensity, hoverIntensity, enableHover, clickEffect, fps, transitionDuration, glitchMode, glitchInterval, glitchDuration });
-  behaviorRef.current = { baseIntensity, hoverIntensity, enableHover, clickEffect, fps, transitionDuration, glitchMode, glitchInterval, glitchDuration };
+  useEffect(() => {
+    behaviorRef.current = { baseIntensity, hoverIntensity, enableHover, clickEffect, fps, transitionDuration, glitchMode, glitchInterval, glitchDuration };
+  }, [baseIntensity, hoverIntensity, enableHover, clickEffect, fps, transitionDuration, glitchMode, glitchInterval, glitchDuration]);
 
   // Text content read by the animation loop — redrawn via separate effect
   const textRef = useRef(React.Children.toArray(children).join(""));
-  textRef.current = React.Children.toArray(children).join("");
   const textDirtyRef = useRef(false);
 
-  // Redraw offscreen buffer when children change without full re-init
   useEffect(() => {
+    textRef.current = React.Children.toArray(children).join("");
     const dp = drawParamsRef.current;
     if (!dp) return;
     textDirtyRef.current = true;
@@ -367,7 +368,6 @@ const FuzzyText: React.FC<FuzzyTextProps> = ({
       }
     };
   // Structural props only — behavioral props and children use refs
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fontSize, fontWeight, fontFamily, color, fuzzRange, direction, gradient, letterSpacing]);
 
   return <canvas ref={canvasRef} className={className} />;

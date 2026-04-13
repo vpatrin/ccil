@@ -1,7 +1,6 @@
 "use client";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable react/no-unknown-property */
 import { useRef, useEffect, useMemo, forwardRef } from 'react';
 import { Canvas, useFrame, useThree, ThreeEvent } from '@react-three/fiber';
 import { EffectComposer, wrapEffect } from '@react-three/postprocessing';
@@ -208,7 +207,6 @@ function DitheredWaves({
   const { viewport, size, gl } = useThree();
 
   // Stable uniform refs — initial values captured once, updated each frame via useFrame
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const waveUniforms = useMemo<WaveUniforms>(() => ({
     time: new THREE.Uniform(0),
     resolution: new THREE.Uniform(new THREE.Vector2(0, 0)),
@@ -219,6 +217,7 @@ function DitheredWaves({
     mousePos: new THREE.Uniform(new THREE.Vector2(0, 0)),
     enableMouseInteraction: new THREE.Uniform(enableMouseInteraction ? 1 : 0),
     mouseRadius: new THREE.Uniform(mouseRadius)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }), []);
 
   useEffect(() => {

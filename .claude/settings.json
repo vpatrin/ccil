@@ -10,7 +10,9 @@
       "Bash(curl -s \"https://api.github.com/repos/pmndrs/market/contents/models\")",
       "Bash(python3 -c \"import json,sys; data=json.load\\(sys.stdin\\); [print\\(f['name'], f['download_url']\\) for f in data if isinstance\\(data, list\\) and f['name'].endswith\\('.glb'\\)]\")",
       "Read(//Users/victor/Documents/WORK/projects/coupette/**)",
-      "Read(//Users/victor/Documents/WORK/projects/infra/**)"
+      "Read(//Users/victor/Documents/WORK/projects/infra/**)",
+      "Bash(export REPO=vpatrin/ccil)",
+      "Bash(gh api:*)"
     ]
   }
 }

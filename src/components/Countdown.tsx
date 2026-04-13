@@ -16,8 +16,9 @@ export default function Countdown({ targetDate, label }: CountdownProps) {
   const [now, setNow] = useState<Date | null>(null);
 
   useEffect(() => {
-    setNow(new Date());
-    const interval = setInterval(() => setNow(new Date()), 1000);
+    const tick = () => setNow(new Date());
+    tick();
+    const interval = setInterval(tick, 1000);
     return () => clearInterval(interval);
   }, []);
 
