@@ -1,3 +1,11 @@
 node_modules
 .next
 .git
+.github
+.claude
+*.md
+Makefile
+docker-compose.yml
+.gitignore
+.dockerignore
+.DS_Store

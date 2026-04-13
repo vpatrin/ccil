@@ -52,7 +52,7 @@ src/
 - Dockerfile: multi-stage (deps → build → runner), node:22-alpine
 - docker-compose.yml: pulls from ghcr.io/vpatrin/ccil, hardened (read_only, cap_drop, mem_limit)
 - CI: lint + build + docker build + hadolint on PRs
-- CD: tag-triggered, builds and pushes to GHCR, SSH deploys to VPS
+- CD: workflow_dispatch (`make deploy`), builds and pushes to GHCR, SSH deploys to VPS
 - Target subdomain: ccil.victorpatrin.dev
 
 ## Content Source

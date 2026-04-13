@@ -1,48 +1,21 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import Navigation from "@/components/Navigation";
 import FadeIn from "@/components/FadeIn";
 import Countdown from "@/components/Countdown";
+import { FolderOpenIcon } from "@phosphor-icons/react";
 
 const Dither = dynamic(() => import("@/components/Dither"), { ssr: false });
 
 const NEXT_SHOW = new Date("2026-04-18T23:00:00");
 
 function FloatingName() {
-  const [pastHero, setPastHero] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setPastHero(window.scrollY > window.innerHeight * 0.6);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <div
-      className={`fixed right-6 sm:right-16 z-40 text-right mix-blend-difference transition-all duration-1000 ${
-        pastHero ? "top-6 bottom-auto" : "bottom-[10vh] top-auto"
-      }`}
-    >
-      <h1
-        className={`font-normal tracking-[0.15em] leading-none text-white/90 transition-all duration-1000 ${
-          pastHero
-            ? "text-[clamp(1.8rem,3vw,2.5rem)]"
-            : "text-[clamp(2.5rem,6vw,4rem)]"
-        }`}
-      >
+    <div className="fixed bottom-6 right-6 sm:right-16 z-40 text-right mix-blend-difference">
+      <h1 className="font-normal tracking-[0.15em] leading-none text-white/90 text-[clamp(1.8rem,3vw,2.5rem)]">
         ccil
       </h1>
-      <p
-        className={`text-[9px] tracking-[0.3em] text-white/30 transition-opacity duration-1000 ${
-          pastHero ? "opacity-0" : "opacity-100 mt-3"
-        }`}
-      >
-        Solamente bangers
-      </p>
     </div>
   );
 }
@@ -82,27 +55,38 @@ export default function Home() {
         <Navigation />
         <FloatingName />
 
-        <section className="h-screen flex items-center justify-center px-6 sm:px-16">
+        <section className="h-screen relative flex items-center justify-center px-6 sm:px-16">
           <FadeIn delay={200}>
             <Countdown targetDate={NEXT_SHOW} label="Next set" />
+          </FadeIn>
+          <FadeIn delay={600} className="absolute bottom-[12vh] left-1/2 -translate-x-1/2">
+            <a
+              href="https://linktr.ee/ccil.mp3"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-[clamp(0.7rem,2vw,1rem)] text-white/60 hover:text-white/90 transition-colors duration-1000"
+            >
+              <FolderOpenIcon size="1em" weight="light" />
+              Linktree
+            </a>
           </FadeIn>
         </section>
 
         <div className="max-w-xl mx-auto px-6">
-          <div className="h-[20vh]" />
+          <div className="h-[10vh]" />
 
           <section className="pb-20">
             <FadeIn>
-              <p className="text-[8px] uppercase tracking-[0.6em] text-white/50 mb-6">
+              <p className="text-base uppercase tracking-[0.6em] text-white mb-10">
                 Upcoming
               </p>
             </FadeIn>
             <div className="space-y-4">
               {UPCOMING.map((gig, i) => (
                 <FadeIn key={i} delay={i * 120}>
-                  <div className="flex items-baseline justify-between">
-                    <span className="text-sm text-white/90">{gig.venue}</span>
-                    <span className="text-[9px] tracking-[0.3em] text-white/30">
+                  <div className="flex items-baseline justify-between gap-4">
+                    <span className="text-sm text-white/50">{gig.venue}</span>
+                    <span className="text-sm tracking-[0.3em] text-white/50 shrink-0">
                       {gig.date}
                     </span>
                   </div>
@@ -111,11 +95,11 @@ export default function Home() {
             </div>
           </section>
 
-          <div className="h-[5vh]" />
+          <div className="h-[10vh]" />
 
           <section className="pb-20">
             <FadeIn>
-              <p className="text-[8px] uppercase tracking-[0.6em] text-white/30 mb-6">
+              <p className="text-base uppercase tracking-[0.6em] text-white mb-10">
                 2026
               </p>
             </FadeIn>
@@ -123,13 +107,11 @@ export default function Home() {
               {PAST.map((gig, i) => (
                 <FadeIn key={i} delay={i * 100}>
                   <div className="flex items-baseline justify-between gap-4">
-                    <span className="text-sm text-white/60 shrink-0">
+                    <span className="text-sm text-white/50">
                       {gig.venue}
+                      <span className="text-white/50"> — {gig.location}</span>
                     </span>
-                    <span className="text-[9px] tracking-[0.3em] text-white/20 text-right">
-                      {gig.location}
-                    </span>
-                    <span className="text-[9px] tracking-[0.3em] text-white/15 shrink-0">
+                    <span className="text-sm tracking-[0.3em] text-white/50 shrink-0">
                       {gig.date}
                     </span>
                   </div>
@@ -142,16 +124,16 @@ export default function Home() {
 
           <FadeIn>
             <section className="pb-20">
-              <p className="text-[8px] uppercase tracking-[0.6em] text-white/50 mb-6">
+              <p className="text-base uppercase tracking-[0.6em] text-white mb-10">
                 About
               </p>
-              <p className="text-xs leading-[2] text-white/50">
+              <p className="text-sm leading-[2] text-white/50">
                 Groove, tension, acid touches. Based in Montreal, shaping sets
                 around hard and ghetto house, hardgroove, trance, bounce, and raw
                 techno — building energy progressively while keeping space for
                 surprise.
               </p>
-              <p className="text-xs leading-[2] text-white/35 mt-4">
+              <p className="text-sm leading-[2] text-white/50 mt-4">
                 Less interested in constant drops, more in movement and pacing.
                 DJing as an ongoing research process: refining a personal language
                 while staying sensitive to the room.
@@ -161,30 +143,7 @@ export default function Home() {
 
           <div className="h-[10vh]" />
 
-          <FadeIn>
-            <footer className="pb-16 flex items-baseline gap-8">
-              <a
-                href="https://soundcloud.com/ccil_mp3"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[9px] tracking-[0.3em] text-white/30 hover:text-white/60 transition-colors duration-1000"
-              >
-                Soundcloud
-              </a>
-              <a
-                href="#"
-                className="text-[9px] tracking-[0.3em] text-white/30 hover:text-white/60 transition-colors duration-1000"
-              >
-                Instagram
-              </a>
-              <a
-                href="mailto:ccil.mp3@gmail.com"
-                className="text-[9px] tracking-[0.3em] text-white/30 hover:text-white/60 transition-colors duration-1000"
-              >
-                Booking
-              </a>
-            </footer>
-          </FadeIn>
+          <footer className="pb-16" />
         </div>
       </div>
     </div>

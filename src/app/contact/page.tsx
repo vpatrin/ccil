@@ -73,9 +73,6 @@ export default function Contact() {
                     Send
                   </button>
                 </form>
-                <p className="mt-20 text-[9px] tracking-[0.3em] text-white/15">
-                  ccil.mp3@gmail.com
-                </p>
               </>
             )}
           </div>
