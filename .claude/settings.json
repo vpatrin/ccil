@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s \"https://raw.githubusercontent.com/ToxSam/open-source-3D-assets/main/data/assets/pm-aero-system.json\")",
+      "Bash(python3 -c \" import sys, json data = json.load\\(sys.stdin\\) for item in data[:20]: cats = [a['value'] for a in item.get\\('metadata',{}\\).get\\('attributes',[]\\) if a.get\\('trait_type'\\) in \\('Category','Type'\\)] print\\(item['name'], '|', '|'.join\\(cats\\), '|', item['model_file_url']\\) \")",
+      "Bash(python3 -c \" import sys, json data = json.load\\(sys.stdin\\) glbs = [x['path'] for x in data.get\\('tree',[]\\) if x['path'].endswith\\('.glb'\\)] print\\('\\\\n'.join\\(glbs\\)\\) \")",
+      "Bash(python3 -)",
+      "Bash(npm run:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://raw.githubusercontent.com/pmndrs/market/main/models/bunny.glb\")",
+      "Bash(curl -s \"https://api.github.com/repos/pmndrs/market/contents/models\")",
+      "Bash(python3 -c \"import json,sys; data=json.load\\(sys.stdin\\); [print\\(f['name'], f['download_url']\\) for f in data if isinstance\\(data, list\\) and f['name'].endswith\\('.glb'\\)]\")"
+    ]
+  }
+}
