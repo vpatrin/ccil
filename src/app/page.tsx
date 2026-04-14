@@ -1,7 +1,6 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import Navigation from "@/components/Navigation";
 import FadeIn from "@/components/FadeIn";
 import Countdown from "@/components/Countdown";
 import { Link as LinkIcon } from "@phosphor-icons/react/dist/ssr/Link";
@@ -86,7 +85,6 @@ export default function Home() {
       </div>
 
       <div className="relative z-10">
-        <Navigation />
         <Waveform />
         <FloatingName />
 
