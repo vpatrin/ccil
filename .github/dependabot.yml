@@ -3,6 +3,10 @@ updates:
   - package-ecosystem: npm
     directory: /
     schedule: { interval: weekly }
+    ignore:
+      - dependency-name: next
+      - dependency-name: eslint-config-next
+      - dependency-name: "@react-three/fiber"
     groups:
       minor-and-patch:
         update-types: [minor, patch]
