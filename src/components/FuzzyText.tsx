@@ -189,7 +189,7 @@ const FuzzyText: React.FC<FuzzyTextProps> = ({
         if (isCancelled || !isVisible) return;
 
         const b = behaviorRef.current;
-        const frameBudget = isHovering ? 16 : 33;
+        const frameBudget = isHovering ? 16 : 100;
         if (timestamp - lastFrameTime < frameBudget) {
           animationFrameId = window.requestAnimationFrame(run);
           return;

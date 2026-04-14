@@ -276,18 +276,6 @@ function DitheredWaves({
   );
 }
 
-export interface DitherProps {
-  waveSpeed?: number;
-  waveFrequency?: number;
-  waveAmplitude?: number;
-  waveColor?: [number, number, number];
-  colorNum?: number;
-  pixelSize?: number;
-  disableAnimation?: boolean;
-  enableMouseInteraction?: boolean;
-  mouseRadius?: number;
-}
-
 export default function Dither({
   waveSpeed = 0.05,
   waveFrequency = 3,
@@ -298,7 +286,7 @@ export default function Dither({
   disableAnimation = false,
   enableMouseInteraction = true,
   mouseRadius = 1
-}: DitherProps) {
+}: Partial<DitheredWavesProps>) {
   return (
     <Canvas
       className="w-full h-full relative"

@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(grep -r \"export\" /Users/victor/Documents/WORK/projects/coupette/frontend/src/lib/*.ts)",
-      "Bash(make check:*)"
-    ]
-  }
-}
