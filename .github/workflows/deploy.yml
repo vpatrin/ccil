@@ -34,7 +34,9 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.IMAGE }}:latest
+          tags: |
+            ${{ env.IMAGE }}:latest
+            ${{ env.IMAGE }}:${{ github.sha }}
 
   deploy:
     needs: [build-push]
@@ -71,3 +73,21 @@ jobs:
             cd /home/deploy/ccil
             docker compose pull
             docker compose up -d
+
+      - name: Verify healthy
+        uses: appleboy/ssh-action@v1.2.5
+        with:
+          host: ${{ secrets.SSH_DEPLOY_HOST }}
+          username: ${{ secrets.SSH_DEPLOY_USER }}
+          key: ${{ secrets.SSH_DEPLOY_KEY }}
+          script: |
+            for i in $(seq 1 10); do
+              if curl -sf http://localhost:3000/health > /dev/null 2>&1; then
+                echo "Health check passed"
+                exit 0
+              fi
+              echo "Attempt $i/10 — waiting..."
+              sleep 3
+            done
+            echo "Health check failed after 30s"
+            exit 1
