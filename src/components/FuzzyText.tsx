@@ -62,12 +62,15 @@ const FuzzyText: React.FC<FuzzyTextProps> = ({
     let animationFrameId: number;
     let isCancelled = false;
     let ro: ResizeObserver | null = null;
+    let io: IntersectionObserver | null = null;
     let handleMouseMove: ((e: MouseEvent) => void) | null = null;
     let handleMouseLeave: (() => void) | null = null;
     let handleTouchMove: ((e: TouchEvent) => void) | null = null;
     let handleTouchEnd: (() => void) | null = null;
     const canvas = canvasRef.current;
     if (!canvas) return;
+    let isVisible = true;
+    let runFn: ((timestamp: number) => void) | null = null;
 
     const init = async () => {
       const ctx = canvas.getContext("2d");
@@ -183,10 +186,10 @@ const FuzzyText: React.FC<FuzzyTextProps> = ({
       ro.observe(canvas);
 
       const run = (timestamp: number) => {
-        if (isCancelled) return;
+        if (isCancelled || !isVisible) return;
 
         const b = behaviorRef.current;
-        const frameBudget = isHovering ? 16 : 150;
+        const frameBudget = isHovering ? 16 : 33;
         if (timestamp - lastFrameTime < frameBudget) {
           animationFrameId = window.requestAnimationFrame(run);
           return;
@@ -213,6 +216,18 @@ const FuzzyText: React.FC<FuzzyTextProps> = ({
         }
         animationFrameId = window.requestAnimationFrame(run);
       };
+      runFn = run;
+
+      io = new IntersectionObserver(
+        ([entry]) => {
+          isVisible = entry.isIntersecting;
+          if (isVisible && !isCancelled && runFn) {
+            animationFrameId = window.requestAnimationFrame(runFn);
+          }
+        },
+        { threshold: 0 }
+      );
+      io.observe(canvas);
 
       animationFrameId = window.requestAnimationFrame(run);
 
@@ -256,6 +271,7 @@ const FuzzyText: React.FC<FuzzyTextProps> = ({
       drawParamsRef.current = null;
       window.cancelAnimationFrame(animationFrameId);
       ro?.disconnect();
+      io?.disconnect();
       if (canvas) {
         if (handleMouseMove) canvas.removeEventListener("mousemove", handleMouseMove);
         if (handleMouseLeave) canvas.removeEventListener("mouseleave", handleMouseLeave);
