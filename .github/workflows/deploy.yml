@@ -82,12 +82,15 @@ jobs:
           key: ${{ secrets.SSH_DEPLOY_KEY }}
           script: |
             for i in $(seq 1 10); do
-              if curl -sf http://localhost:3000/health > /dev/null 2>&1; then
-                echo "Health check passed"
+              status=$(docker inspect --format='{{.State.Health.Status}}' ccil 2>/dev/null || echo "missing")
+              if [ "$status" = "healthy" ]; then
+                echo "Container healthy"
                 exit 0
               fi
-              echo "Attempt $i/10 — waiting..."
+              echo "Attempt $i/10 — status: $status"
               sleep 3
             done
             echo "Health check failed after 30s"
+            docker logs --tail 20 ccil 2>&1 || true
             exit 1
+
