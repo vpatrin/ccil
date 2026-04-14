@@ -18,8 +18,22 @@ export default function Countdown({ targetDate, label }: CountdownProps) {
   useEffect(() => {
     const tick = () => setNow(new Date());
     tick();
-    const interval = setInterval(tick, 1000);
-    return () => clearInterval(interval);
+    let interval = setInterval(tick, 1000);
+
+    const onVisibility = () => {
+      if (document.hidden) {
+        clearInterval(interval);
+      } else {
+        tick();
+        interval = setInterval(tick, 1000);
+      }
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
   }, []);
 
   if (!now) return null;

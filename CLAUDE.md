@@ -53,7 +53,7 @@ src/
 - docker-compose.yml: pulls from ghcr.io/vpatrin/ccil, hardened (read_only, cap_drop, mem_limit)
 - CI: lint + build + docker build + hadolint on PRs
 - CD: workflow_dispatch (`make deploy`), builds and pushes to GHCR, SSH deploys to VPS
-- Target subdomain: ccil.victorpatrin.dev
+- Domain: ccil.club
 
 ## Content Source
 
