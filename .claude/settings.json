@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -r \"uniform\\\\|shader\\\\|ShaderMaterial\" /Users/victor/Documents/WORK/projects/ccil/node_modules/@react-three/fiber/dist/*.js)",
+      "Bash(npx tsc:*)"
+    ]
+  }
+}

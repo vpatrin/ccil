@@ -10,7 +10,13 @@ const spaceMono = Space_Mono({
 
 export const metadata: Metadata = {
   title: "CCIL",
-  description: "CCIL — DJ / Producer",
+  description: "Groove, tension, acid touches. Montreal-based DJ shaping sets around hard house, hardgroove, trance, bounce, and raw techno.",
+  openGraph: {
+    title: "CCIL",
+    description: "Montreal-based DJ — hard house, hardgroove, trance, bounce, raw techno.",
+    type: "website",
+    url: "https://ccil.club",
+  },
 };
 
 export default function RootLayout({

@@ -21,3 +21,9 @@ body {
   background: rgba(247, 251, 4, 0.2);
   color: #f7fb04;
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
