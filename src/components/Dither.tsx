@@ -198,7 +198,7 @@ function DitheredWaves({
   mouseRadius
 }: DitheredWavesProps) {
   const mesh = useRef<Mesh>(null);
-  const { viewport, size, gl } = useThree();
+  const { viewport, size, gl, invalidate } = useThree();
 
   const waveUniforms = useMemo<WaveUniforms>(() => ({
     time: new Uniform(0),
@@ -242,6 +242,12 @@ function DitheredWaves({
     }
   });
 
+  useEffect(() => {
+    if (disableAnimation) return;
+    const id = setInterval(() => invalidate(), 66);
+    return () => clearInterval(id);
+  }, [disableAnimation, invalidate]);
+
   const rectRef = useRef<DOMRect | null>(null);
   useEffect(() => {
     rectRef.current = gl.domElement.getBoundingClientRect();
@@ -256,6 +262,7 @@ function DitheredWaves({
     if (!enableMouseInteraction || !rectRef.current) return;
     const dpr = gl.getPixelRatio();
     waveUniforms.mousePos.value.set((e.clientX - rectRef.current.left) * dpr, (e.clientY - rectRef.current.top) * dpr);
+    invalidate();
   };
 
   return (
@@ -293,6 +300,7 @@ export default function Dither({
       camera={{ position: [0, 0, 6] }}
       dpr={1}
       gl={{ antialias: false }}
+      frameloop="demand"
     >
       <DitheredWaves
         waveSpeed={waveSpeed}
