@@ -1,0 +1,18 @@
+{
+  "nextShow": "2026-04-18T23:00:00-04:00",
+  "upcoming": [
+    { "date": "18.04", "event": "Le Boudoir — All Night Long" }
+  ],
+  "past2026": [
+    { "date": "01.04", "event": "Down2Techno", "location": "Red Room" },
+    { "date": "13.03", "event": "Dance For Peace", "location": "TLM" },
+    { "date": "05.03", "event": "Shift Radio", "location": "Live" },
+    { "date": "28.02", "event": "Atmos Fest Launch", "location": "b2b Meen Moreen" },
+    { "date": "05.02", "event": "All Night Long", "location": "Le Salon Daomé" },
+    { "date": "16.01", "event": "Nightwalkers", "location": "Ottawa" }
+  ],
+  "about": [
+    "Groove, tension, acid touches. Based in Montreal, shaping sets around hard and ghetto house, hardgroove, trance, bounce, and raw techno — building energy progressively while keeping space for surprise.",
+    "Less interested in constant drops, more in movement and pacing. DJing as an ongoing research process: refining a personal language while staying sensitive to the room."
+  ]
+}
