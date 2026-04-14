@@ -63,9 +63,7 @@ function FloatingName() {
 }
 
 const UPCOMING = [
-  { date: "18.04", venue: "TBA" },
-  { date: "08.05", venue: "TBA" },
-  { date: "09.05", venue: "TBA" },
+  { date: "18.04", venue: "Le Boudoir — All Night Long" },
 ];
 
 const PAST = [
