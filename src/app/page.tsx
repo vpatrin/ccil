@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import FadeIn from "@/components/FadeIn";
 import Countdown from "@/components/Countdown";
-import { Link as LinkIcon } from "@phosphor-icons/react/dist/ssr/Link";
+import { Link as LinkIcon } from "@phosphor-icons/react";
 
 const Dither = dynamic(() => import("@/components/Dither"), { ssr: false });
 

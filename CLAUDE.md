@@ -1,6 +1,6 @@
 # CCIL — Project Context
 
-DJ homepage for ccil. Minimal site with dithered WebGL wave background (Three.js + postprocessing), fuzzy text effects, and two pages (home + contact).
+DJ homepage for ccil. Minimal single-page site with dithered WebGL wave background (Three.js + postprocessing) and fuzzy text effects.
 
 ## Stack
 
@@ -18,14 +18,12 @@ src/
 ├── app/
 │   ├── layout.tsx          # Root layout, Space Mono font
 │   ├── globals.css         # Minimal reset, dark background
-│   ├── page.tsx            # Home — hero, countdown, dates, about
-│   └── contact/page.tsx    # Contact form
+│   └── page.tsx            # Home — hero, countdown, dates, about
 └── components/
     ├── Countdown.tsx       # Countdown timer to next show (uses FuzzyText)
     ├── Dither.tsx          # WebGL dithered wave background (Three.js)
     ├── FadeIn.tsx          # Scroll-triggered fade-in wrapper
-    ├── FuzzyText.tsx       # Canvas-based fuzzy/glitch text effect
-    └── Navigation.tsx      # Fixed nav, mix-blend-difference
+    └── FuzzyText.tsx       # Canvas-based fuzzy/glitch text effect
 ```
 
 ## Design Direction
@@ -51,7 +49,7 @@ src/
 
 - Dockerfile: multi-stage (deps → build → runner), node:22-alpine
 - docker-compose.yml: pulls from ghcr.io/vpatrin/ccil, hardened (read_only, cap_drop, mem_limit)
-- CI: lint + build + docker build + hadolint on PRs
+- CI: lint + typecheck + build + docker build + hadolint on PRs
 - CD: workflow_dispatch (`make deploy`), builds and pushes to GHCR, SSH deploys to VPS
 - Domain: ccil.club
 
