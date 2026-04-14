@@ -1,14 +1,14 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import Navigation from "@/components/Navigation";
 import FadeIn from "@/components/FadeIn";
 import Countdown from "@/components/Countdown";
-import { Link as LinkIcon } from "@phosphor-icons/react/dist/ssr/Link";
+import { Link as LinkIcon } from "@phosphor-icons/react";
+import content from "@/content.json";
 
 const Dither = dynamic(() => import("@/components/Dither"), { ssr: false });
 
-const NEXT_SHOW = new Date("2026-04-18T23:00:00-04:00");
+const NEXT_SHOW = new Date(content.nextShow);
 const WAVE_COLOR: [number, number, number] = [0.3, 0.3, 0.4];
 
 function Waveform() {
@@ -62,18 +62,8 @@ function FloatingName() {
   );
 }
 
-const UPCOMING = [
-  { date: "18.04", venue: "Le Boudoir — All Night Long" },
-];
-
-const PAST = [
-  { date: "01.04", venue: "Down2Techno", location: "Red Room" },
-  { date: "13.03", venue: "Dance For Peace", location: "TLM" },
-  { date: "05.03", venue: "Shift Radio", location: "Live" },
-  { date: "28.02", venue: "Atmos Fest Launch", location: "b2b Meen Moreen" },
-  { date: "05.02", venue: "All Night Long", location: "Le Salon Daomé" },
-  { date: "16.01", venue: "Nightwalkers", location: "Ottawa" },
-];
+const UPCOMING = content.upcoming;
+const PAST = content.past2026;
 
 export default function Home() {
   return (
@@ -86,7 +76,6 @@ export default function Home() {
       </div>
 
       <div className="relative z-10">
-        <Navigation />
         <Waveform />
         <FloatingName />
 
@@ -118,9 +107,11 @@ export default function Home() {
             </FadeIn>
             <div className="space-y-4">
               {UPCOMING.map((gig, i) => (
-                <FadeIn key={`${gig.date}-${gig.venue}`} delay={i * 120}>
+                <FadeIn key={`${gig.date}-${gig.event}`} delay={i * 120}>
                   <div className="flex items-baseline justify-between gap-4">
-                    <span className="text-sm text-white/50">{gig.venue}</span>
+                    <span className="text-sm text-white/50">
+                      {gig.event} — {gig.location}
+                    </span>
                     <span className="text-sm tracking-[0.3em] text-white/50 shrink-0">
                       {gig.date}
                     </span>
@@ -140,10 +131,10 @@ export default function Home() {
             </FadeIn>
             <div className="space-y-4">
               {PAST.map((gig, i) => (
-                <FadeIn key={`${gig.date}-${gig.venue}`} delay={i * 100}>
+                <FadeIn key={`${gig.date}-${gig.event}`} delay={i * 100}>
                   <div className="flex items-baseline justify-between gap-4">
                     <span className="text-sm text-white/50">
-                      {gig.venue} — {gig.location}
+                      {gig.event} — {gig.location}
                     </span>
                     <span className="text-sm tracking-[0.3em] text-white/50 shrink-0">
                       {gig.date}
@@ -161,17 +152,11 @@ export default function Home() {
               <p className="text-base uppercase tracking-[0.6em] text-white mb-10">
                 About
               </p>
-              <p className="text-sm leading-[2] text-white/50">
-                Groove, tension, acid touches. Based in Montreal, shaping sets
-                around hard and ghetto house, hardgroove, trance, bounce, and raw
-                techno — building energy progressively while keeping space for
-                surprise.
-              </p>
-              <p className="text-sm leading-[2] text-white/50 mt-4">
-                Less interested in constant drops, more in movement and pacing.
-                DJing as an ongoing research process: refining a personal language
-                while staying sensitive to the room.
-              </p>
+              {content.about.map((paragraph, i) => (
+                <p key={i} className={`text-sm leading-[2] text-white/50${i > 0 ? " mt-4" : ""}`}>
+                  {paragraph}
+                </p>
+              ))}
             </section>
           </FadeIn>
 
