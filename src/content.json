@@ -1,7 +1,7 @@
 {
   "nextShow": "2026-04-18T23:00:00-04:00",
   "upcoming": [
-    { "date": "18.04", "event": "Le Boudoir — All Night Long" }
+    { "date": "18.04", "event": "All Night Long", "location": "Le Boudoir" }
   ],
   "past2026": [
     { "date": "01.04", "event": "Down2Techno", "location": "Red Room" },

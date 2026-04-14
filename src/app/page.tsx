@@ -109,7 +109,9 @@ export default function Home() {
               {UPCOMING.map((gig, i) => (
                 <FadeIn key={`${gig.date}-${gig.event}`} delay={i * 120}>
                   <div className="flex items-baseline justify-between gap-4">
-                    <span className="text-sm text-white/50">{gig.event}</span>
+                    <span className="text-sm text-white/50">
+                      {gig.event} — {gig.location}
+                    </span>
                     <span className="text-sm tracking-[0.3em] text-white/50 shrink-0">
                       {gig.date}
                     </span>
