@@ -1,15 +1,20 @@
 {
-  "nextShow": "2026-04-18T23:00:00-04:00",
+  "nextShow": "2026-08-01T23:00:00-04:00",
   "upcoming": [
-    { "date": "18.04", "event": "All Night Long", "location": "Le Boudoir" }
+    { "date": "08.26", "event": "TBA", "location": "TBA" }
   ],
   "past2026": [
+    { "date": "11.05", "event": "The Marked Set x Phosphate Records", "location": "Montreal" },
+    { "date": "09.05", "event": "T.i.t.s 4 years x Le Système", "location": "Montreal" },
+    { "date": "08.05", "event": "Cloud 9 curated by Hedonir", "location": "Ottawa" },
+    { "date": "18.04", "event": "ccil All Night Long", "location": "Le Boudoir" },
     { "date": "01.04", "event": "Down2Techno", "location": "Red Room" },
     { "date": "13.03", "event": "Dance For Peace", "location": "TLM" },
     { "date": "05.03", "event": "Shift Radio", "location": "Live" },
     { "date": "28.02", "event": "Atmos Fest Launch", "location": "b2b Meen Moreen" },
-    { "date": "05.02", "event": "All Night Long", "location": "Le Salon Daomé" },
-    { "date": "16.01", "event": "Nightwalkers", "location": "Ottawa" }
+    { "date": "05.02", "event": "All Night Long b2b ÜNPLÜGGED", "location": "Le Salon Daomé" },
+    { "date": "16.01", "event": "Nightwalkers for Hedonir", "location": "Ottawa" },
+    { "date": "07.01", "event": "Down2Techno", "location": "Red Room" }
   ],
   "about": [
     "Groove, tension, acid touches. Based in Montreal, shaping sets around hard and ghetto house, hardgroove, trance, bounce, and raw techno — building energy progressively while keeping space for surprise.",
