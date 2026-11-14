@@ -100,8 +100,8 @@ function GigList({ gigs }: { gigs: Gig[] }) {
       {gigs.map((gig, i) => (
         <FadeIn key={`${gig.date}-${gig.event}`} delay={i * 100}>
           <div className="flex items-baseline justify-between gap-4">
-            <span className="text-sm text-white/50">{gigTitle(gig)}</span>
-            <span className="text-sm tracking-[0.3em] text-white/50 shrink-0">
+            <span className="text-sm text-white/80">{gigTitle(gig)}</span>
+            <span className="text-sm tracking-[0.3em] text-[#b8ff3c] shrink-0">
               {gig.date}
             </span>
           </div>
@@ -156,7 +156,7 @@ export default function Home() {
               href="https://linktr.ee/ccil.mp3"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-[clamp(0.7rem,2vw,1rem)] uppercase tracking-[0.3em] text-white/60 hover:text-white/90 transition-colors duration-1000"
+              className="flex items-center gap-2 text-[clamp(0.7rem,2vw,1rem)] uppercase tracking-[0.3em] text-[#b8ff3c] hover:text-[#e8ff8a] transition-colors duration-1000"
             >
               <LinkIcon size="1em" weight="light" />
               Links
@@ -170,7 +170,7 @@ export default function Home() {
           {upcoming.length > 0 && (
             <section className="pb-20">
               <FadeIn>
-                <p className="text-base uppercase tracking-[0.6em] text-white mb-10">
+                <p className="text-base uppercase tracking-[0.6em] text-[#b8ff3c] mb-10">
                   Upcoming
                 </p>
               </FadeIn>
@@ -183,7 +183,7 @@ export default function Home() {
           {past.length > 0 && (
             <section className="pb-20">
               <FadeIn>
-                <p className="text-base uppercase tracking-[0.6em] text-white mb-10">
+                <p className="text-base uppercase tracking-[0.6em] text-[#b8ff3c] mb-10">
                   2026
                 </p>
               </FadeIn>
@@ -195,11 +195,11 @@ export default function Home() {
 
           <FadeIn>
             <section className="pb-20">
-              <p className="text-base uppercase tracking-[0.6em] text-white mb-10">
+              <p className="text-base uppercase tracking-[0.6em] text-[#b8ff3c] mb-10">
                 About
               </p>
               {content.about.map((paragraph, i) => (
-                <p key={i} className={`text-sm leading-[2] text-white/50${i > 0 ? " mt-4" : ""}`}>
+                <p key={i} className={`text-sm leading-[2] text-white/80${i > 0 ? " mt-4" : ""}`}>
                   <AboutParagraph text={paragraph} />
                 </p>
               ))}

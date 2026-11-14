@@ -55,7 +55,7 @@ export default function Countdown({ targetDate, label, thankYou }: CountdownProp
   return (
     <div className="flex flex-col items-center gap-6 px-6">
       {thankYou && (
-        <p className="max-w-xl text-center text-sm leading-relaxed tracking-[0.12em] text-white/55">
+        <p className="max-w-xl text-center text-sm leading-relaxed tracking-[0.12em] text-white/80">
           {thankYou}
         </p>
       )}
@@ -63,7 +63,7 @@ export default function Countdown({ targetDate, label, thankYou }: CountdownProp
         <FuzzyText
           fontSize="clamp(0.7rem, 2vw, 1rem)"
           fontWeight={400}
-          color="rgba(255,255,255,0.3)"
+          color="#b8ff3c"
           baseIntensity={0.08}
           hoverIntensity={0.3}
           fuzzRange={10}

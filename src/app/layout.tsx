@@ -9,10 +9,10 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CCIL",
+  title: "ccil",
   description: "Based in Montreal, ccil shapes her sets around groove, tension, and acid touches — a sound she calls “deep groove.”",
   openGraph: {
-    title: "CCIL",
+    title: "ccil",
     description: "Montreal-based DJ — deep groove, raw & hypnotic techno, hardgroove, ghetto house & trance.",
     type: "website",
     url: "https://ccil.club",

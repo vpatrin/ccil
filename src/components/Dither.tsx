@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useMemo, forwardRef } from 'react';
+import { useRef, useEffect, useMemo, useState, forwardRef } from 'react';
 import { Canvas, useFrame, useThree, ThreeEvent } from '@react-three/fiber';
 import { EffectComposer, wrapEffect } from '@react-three/postprocessing';
 import { Effect } from 'postprocessing';
@@ -199,6 +199,12 @@ function DitheredWaves({
 }: DitheredWavesProps) {
   const mesh = useRef<Mesh>(null);
   const { viewport, size, gl, invalidate } = useThree();
+  const [composerReady, setComposerReady] = useState(false);
+
+  useEffect(() => {
+    const attrs = gl.getContext()?.getContextAttributes?.();
+    setComposerReady(Boolean(attrs));
+  }, [gl]);
 
   const waveUniforms = useMemo<WaveUniforms>(() => ({
     time: new Uniform(0),
@@ -276,9 +282,11 @@ function DitheredWaves({
         />
       </mesh>
 
-      <EffectComposer>
-        <RetroEffect colorNum={colorNum} pixelSize={pixelSize} />
-      </EffectComposer>
+      {composerReady && (
+        <EffectComposer multisampling={0}>
+          <RetroEffect colorNum={colorNum} pixelSize={pixelSize} />
+        </EffectComposer>
+      )}
     </>
   );
 }
@@ -299,7 +307,7 @@ export default function Dither({
       className="w-full h-full relative"
       camera={{ position: [0, 0, 6] }}
       dpr={1}
-      gl={{ antialias: false }}
+      gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }}
       frameloop="demand"
     >
       <DitheredWaves
