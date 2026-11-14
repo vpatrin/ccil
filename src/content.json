@@ -1,23 +1,33 @@
 {
-  "nextShow": "2026-08-01T23:00:00-04:00",
-  "upcoming": [
-    { "date": "08.26", "event": "TBA", "location": "TBA" }
-  ],
-  "past2026": [
-    { "date": "11.05", "event": "The Marked Set x Phosphate Records", "location": "Montreal" },
-    { "date": "09.05", "event": "T.i.t.s 4 years x Le Système", "location": "Montreal" },
-    { "date": "08.05", "event": "Cloud 9 curated by Hedonir", "location": "Ottawa" },
-    { "date": "18.04", "event": "ccil All Night Long", "location": "Le Boudoir" },
-    { "date": "01.04", "event": "Down2Techno", "location": "Red Room" },
-    { "date": "13.03", "event": "Dance For Peace", "location": "TLM" },
-    { "date": "05.03", "event": "Shift Radio", "location": "Live" },
-    { "date": "28.02", "event": "Atmos Fest Launch", "location": "b2b Meen Moreen" },
-    { "date": "05.02", "event": "All Night Long b2b ÜNPLÜGGED", "location": "Le Salon Daomé" },
-    { "date": "16.01", "event": "Nightwalkers for Hedonir", "location": "Ottawa" },
-    { "date": "07.01", "event": "Down2Techno", "location": "Red Room" }
+  "youtubeUrl": "https://www.youtube.com/live/vdvtB0HBfSQ?si=9BSWbt6pB0347YgI",
+  "titsUrl": "https://www.instagram.com/t.i.t.s.collective/",
+  "gigs": [
+    { "datetime": "2026-12-12T23:00:00-05:00", "date": "12.12", "event": "TBA" },
+    { "datetime": "2026-11-28T23:00:00-05:00", "date": "28.11", "event": "TBA" },
+    { "datetime": "2026-11-22T15:00:00-05:00", "date": "22.11", "event": "aftg day rave", "location": "secret location" },
+    { "datetime": "2026-10-27T23:00:00-04:00", "date": "27.10", "event": "ccil all night long", "location": "Red Room" },
+    { "datetime": "2026-10-16T23:00:00-04:00", "date": "16.10", "event": "parking.radio show" },
+    { "datetime": "2026-10-09T23:00:00-04:00", "date": "09.10", "event": "Doppler Effect w/ Kichta, Eskha, Dopamyne & ccil" },
+    { "datetime": "2026-09-19T23:00:00-04:00", "date": "19.09", "event": "Rave Générale Mtl Insoumise" },
+    { "datetime": "2026-08-13T23:00:00-04:00", "date": "13.08", "event": "Noreiner x Jardins d'Illusions", "location": "Jardins Gammelin" },
+    { "datetime": "2026-08-08T23:00:00-04:00", "date": "08.08", "event": "T.I.T.S. x Wild Pride", "location": "Système" },
+    { "datetime": "2026-08-06T23:00:00-04:00", "date": "06.08", "event": "Tangerine", "location": "ESC" },
+    { "datetime": "2026-05-30T23:00:00-04:00", "date": "30.05", "event": "b2b Bellini for Bourpiland 2026" },
+    { "datetime": "2026-05-20T23:00:00-04:00", "date": "20.05", "event": "Rave Générale for Montréal Insoumise" },
+    { "datetime": "2026-05-11T23:00:00-04:00", "date": "11.05", "event": "The Marked Set x Phosphate Records" },
+    { "datetime": "2026-05-09T23:00:00-04:00", "date": "09.05", "event": "T.i.t.s 4 years x Le Système 🎂" },
+    { "datetime": "2026-05-08T23:00:00-04:00", "date": "08.05", "event": "Cloud 9 curated by Hedonir", "location": "Ottawa, CA" },
+    { "datetime": "2026-04-18T23:00:00-04:00", "date": "18.04", "event": "ccil All Night Long", "location": "Le Boudoir" },
+    { "datetime": "2026-04-01T23:00:00-04:00", "date": "01.04", "event": "Down2Techno", "location": "Red Room" },
+    { "datetime": "2026-03-13T23:00:00-04:00", "date": "13.03", "event": "Dance For Peace", "location": "TLM" },
+    { "datetime": "2026-03-05T23:00:00-05:00", "date": "05.03", "event": "Shift Radio live" },
+    { "datetime": "2026-02-28T23:00:00-05:00", "date": "28.02", "event": "Atmos Fest Launch party b2b Meen Moreen" },
+    { "datetime": "2026-02-05T23:00:00-05:00", "date": "05.02", "event": "All night long ccil b2b ÜNPLÜGGED", "location": "Le Salon Daomé" },
+    { "datetime": "2026-01-16T23:00:00-05:00", "date": "16.01", "event": "NIGHTWALKERS for Hedonir", "location": "Ottawa, CA" },
+    { "datetime": "2026-01-07T23:00:00-05:00", "date": "07.01", "event": "Down2Techno", "location": "Red Room" }
   ],
   "about": [
-    "Groove, tension, acid touches. Based in Montreal, shaping sets around hard and ghetto house, hardgroove, trance, bounce, and raw techno — building energy progressively while keeping space for surprise.",
-    "Less interested in constant drops, more in movement and pacing. DJing as an ongoing research process: refining a personal language while staying sensitive to the room."
+    "Based in Montreal, ccil shapes her sets around groove, tension, and acid touches; a sound she calls “deep groove,” both profound and groovy. She draws from raw & hypnotic techno, hardgroove, ghetto house & trance, building energy progressively while keeping space for surprise. Less interested in constant drops than in movement and pacing, she treats DJing as ongoing research: refining a personal language while staying attuned to the room and the shared energy of the dancefloor.",
+    "A member of T.I.T.S., a Montreal collective platforming FLINTA* artists, ccil is first and foremost a fan of underground dancefloors, which gave her spaces of freedom found nowhere else. Her sociological and political interests now lead her to organize: she wants to put tools in her community’s hands and sustain human bonds in spaces increasingly colonized by capitalist and patriarchal values. For her, art that doesn’t engage with the world is just entertainment, so she DJs and organizes in defense of freedom of assembly, and for the right of FLINTA* and queer people to gather, take up space, and be free."
   ]
 }
