@@ -56,8 +56,8 @@ function Waveform() {
 
 function FloatingName() {
   return (
-    <div className="fixed bottom-6 right-6 sm:right-16 z-40 text-right mix-blend-difference">
-      <h1 className="font-normal tracking-[0.15em] leading-none text-[clamp(1.8rem,3vw,2.5rem)]">
+    <div className="fixed bottom-[max(0.75rem,env(safe-area-inset-bottom))] right-4 z-40 text-right mix-blend-difference sm:bottom-6 sm:right-16">
+      <h1 className="font-normal tracking-[0.12em] leading-none text-[0.7rem] sm:text-[clamp(1.1rem,2.4vw,1.85rem)] sm:tracking-[0.15em]">
         <a
           href={content.youtubeUrl}
           target="_blank"
@@ -96,12 +96,14 @@ function AboutParagraph({ text }: { text: string }) {
 
 function GigList({ gigs }: { gigs: Gig[] }) {
   return (
-    <div className="space-y-4">
+    <div className="space-y-2 sm:space-y-4">
       {gigs.map((gig, i) => (
         <FadeIn key={`${gig.date}-${gig.event}`} delay={i * 100}>
-          <div className="flex items-baseline justify-between gap-4">
-            <span className="text-sm text-white/80">{gigTitle(gig)}</span>
-            <span className="text-sm tracking-[0.3em] text-[#b8ff3c] shrink-0">
+          <div className="flex items-baseline justify-between gap-3 sm:gap-4">
+            <span className="min-w-0 text-[0.68rem] leading-snug text-white/80 sm:text-sm sm:leading-relaxed">
+              {gigTitle(gig)}
+            </span>
+            <span className="shrink-0 text-[0.62rem] tracking-[0.14em] text-[#b8ff3c] sm:text-sm sm:tracking-[0.3em]">
               {gig.date}
             </span>
           </div>
@@ -143,20 +145,20 @@ export default function Home() {
         <Waveform />
         <FloatingName />
 
-        <section className="h-screen relative flex items-center justify-center px-6 sm:px-16">
-          <FadeIn delay={200}>
+        <section className="relative flex h-[100dvh] items-center justify-center px-4 sm:px-16">
+          <FadeIn delay={200} className="w-full">
             <Countdown
               targetDate={next ? next.time : null}
               label="Next set"
               thankYou={thankYou}
             />
           </FadeIn>
-          <FadeIn delay={600} className="absolute bottom-[12vh] left-1/2 -translate-x-1/2">
+          <FadeIn delay={600} className="absolute bottom-[max(4.5rem,calc(env(safe-area-inset-bottom)+3.5rem))] left-1/2 -translate-x-1/2 sm:bottom-[12vh]">
             <a
               href="https://linktr.ee/ccil.mp3"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-[clamp(0.7rem,2vw,1rem)] uppercase tracking-[0.3em] text-[#b8ff3c] hover:text-[#e8ff8a] transition-colors duration-1000"
+              className="flex min-h-11 items-center gap-2 text-xs uppercase tracking-[0.28em] text-[#b8ff3c] transition-colors duration-1000 hover:text-[#e8ff8a] sm:min-h-0 sm:text-[clamp(0.7rem,2vw,1rem)] sm:tracking-[0.3em]"
             >
               <LinkIcon size="1em" weight="light" />
               Links
@@ -164,13 +166,13 @@ export default function Home() {
           </FadeIn>
         </section>
 
-        <div className="max-w-xl mx-auto px-6">
-          <div className="h-[10vh]" />
+        <div className="mx-auto max-w-xl px-4 sm:px-6">
+          <div className="h-8 sm:h-[10vh]" />
 
           {upcoming.length > 0 && (
-            <section className="pb-20">
+            <section className="pb-8 sm:pb-20">
               <FadeIn>
-                <p className="text-base uppercase tracking-[0.6em] text-[#b8ff3c] mb-10">
+                <p className="mb-4 text-xs uppercase tracking-[0.22em] text-[#b8ff3c] sm:mb-10 sm:text-base sm:tracking-[0.6em]">
                   Upcoming
                 </p>
               </FadeIn>
@@ -178,12 +180,12 @@ export default function Home() {
             </section>
           )}
 
-          <div className="h-[10vh]" />
+          <div className="h-6 sm:h-[10vh]" />
 
           {past.length > 0 && (
-            <section className="pb-20">
+            <section className="pb-8 sm:pb-20">
               <FadeIn>
-                <p className="text-base uppercase tracking-[0.6em] text-[#b8ff3c] mb-10">
+                <p className="mb-4 text-xs uppercase tracking-[0.22em] text-[#b8ff3c] sm:mb-10 sm:text-base sm:tracking-[0.6em]">
                   2026
                 </p>
               </FadeIn>
@@ -191,24 +193,24 @@ export default function Home() {
             </section>
           )}
 
-          <div className="h-[10vh]" />
+          <div className="h-6 sm:h-[10vh]" />
 
           <FadeIn>
-            <section className="pb-20">
-              <p className="text-base uppercase tracking-[0.6em] text-[#b8ff3c] mb-10">
+            <section className="pb-8 sm:pb-20">
+              <p className="mb-4 text-xs uppercase tracking-[0.22em] text-[#b8ff3c] sm:mb-10 sm:text-base sm:tracking-[0.6em]">
                 About
               </p>
               {content.about.map((paragraph, i) => (
-                <p key={i} className={`text-sm leading-[2] text-white/80${i > 0 ? " mt-4" : ""}`}>
+                <p key={i} className={`text-[0.68rem] leading-[1.55] text-white/80 sm:text-sm sm:leading-[2]${i > 0 ? " mt-3 sm:mt-4" : ""}`}>
                   <AboutParagraph text={paragraph} />
                 </p>
               ))}
             </section>
           </FadeIn>
 
-          <div className="h-[10vh]" />
+          <div className="h-8 sm:h-[10vh]" />
 
-          <div className="pb-16" />
+          <div className="pb-12 sm:pb-16" />
         </div>
       </div>
     </div>
